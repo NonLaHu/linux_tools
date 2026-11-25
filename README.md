@@ -6,15 +6,16 @@ A personal collection of small, practical Linux command-line tools.
 
 | Tool | Description | Docs |
 | --- | --- | --- |
-| `down_` | Fast multi-connection `aria2c` downloader with Firefox cookie and MPI dataset support. | [Documentation](bash/down_.md) |
+| `down_` | Fast multi-connection `aria2c` downloader with Firefox cookie and MPI dataset support. | [Documentation](src/bash/down_.md) |
 
 ## Repository Layout
 
 ```text
 linux_tools/
-├── bash/
-│   ├── down_.sh   # sourceable shell function
-│   └── down_.md   # documentation
+├── src/
+│   └── bash/
+│       ├── down_.sh   # sourceable shell function
+│       └── down_.md   # documentation
 ├── LICENSE
 └── README.md
 ```
@@ -27,7 +28,7 @@ For example, to install `down_`:
 
 ```bash
 mkdir -p ~/.local/share/linux_tools
-cp bash/down_.sh ~/.local/share/linux_tools/down_.sh
+cp src/bash/down_.sh ~/.local/share/linux_tools/down_.sh
 echo 'source ~/.local/share/linux_tools/down_.sh' >> ~/.bashrc
 source ~/.bashrc
 ```

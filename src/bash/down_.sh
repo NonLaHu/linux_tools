@@ -3,9 +3,9 @@
 # down_ — fast multi-connection CLI downloader wrapper around aria2c.
 #
 # Source this file from your shell configuration (~/.bashrc or ~/.zshrc):
-#   source /path/to/linux_tools/bash/down_.sh
+#   source /path/to/linux_tools/src/bash/down_.sh
 #
-# Documentation: bash/down_.md
+# Documentation: src/bash/down_.md
 
 down_() {
     if [ -z "$1" ]; then

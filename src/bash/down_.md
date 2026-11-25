@@ -29,7 +29,7 @@ sudo pacman -S aria2 yt-dlp curl python
 
 ```bash
 mkdir -p ~/.local/share/linux_tools
-cp bash/down_.sh ~/.local/share/linux_tools/down_.sh
+cp src/bash/down_.sh ~/.local/share/linux_tools/down_.sh
 ```
 
 2. Source it from your shell configuration file (`~/.bashrc` or `~/.zshrc`):
