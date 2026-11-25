@@ -8,14 +8,38 @@ A personal collection of small, practical Linux command-line tools.
 | --- | --- | --- |
 | `down_` | Fast multi-connection `aria2c` downloader with Firefox cookie and MPI dataset support. | [Documentation](src/bash/down_.md) |
 
+## Git Repository Notes
+
+Usage notes for my GitHub projects, stored as one Markdown file per repository:
+
+| Repository | Docs |
+| --- | --- |
+| `audvis` | [audvis.md](src/git/audvis.md) |
+| `photo-asker` | [photo-asker.md](src/git/photo-asker.md) |
+| `deploy_tool` | [deploy_tool.md](src/git/deploy_tool.md) |
+| `wifi_monitor` | [wifi_monitor.md](src/git/wifi_monitor.md) |
+| `ctf_fetch` | [ctf_fetch.md](src/git/ctf_fetch.md) |
+| `audio_ai` | [audio_ai.md](src/git/audio_ai.md) |
+| `burmese-voice-ai` | [burmese-voice-ai.md](src/git/burmese-voice-ai.md) |
+| `git_dirty` | [git_dirty.md](src/git/git_dirty.md) |
+
 ## Repository Layout
 
 ```text
 linux_tools/
 ├── src/
-│   └── bash/
-│       ├── down_.sh   # sourceable shell function
-│       └── down_.md   # documentation
+│   ├── bash/
+│   │   ├── down_.sh   # sourceable shell function
+│   │   └── down_.md   # documentation
+│   └── git/
+│       ├── audvis.md
+│       ├── photo-asker.md
+│       ├── deploy_tool.md
+│       ├── wifi_monitor.md
+│       ├── ctf_fetch.md
+│       ├── audio_ai.md
+│       ├── burmese-voice-ai.md
+│       └── git_dirty.md
 ├── LICENSE
 └── README.md
 ```
