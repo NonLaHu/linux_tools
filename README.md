@@ -7,6 +7,11 @@ A personal collection of small, practical Linux command-line tools.
 | Tool | Description | Docs |
 | --- | --- | --- |
 | `down_` | Fast multi-connection `aria2c` downloader with Firefox cookie and MPI dataset support. | [Documentation](src/bash/down_.md) |
+| `ytd` | Download a single video with `yt-dlp` using live Firefox cookies. | [Documentation](src/bash/ytd.md) |
+| `ytdm` | Extract a video's audio track to MP3 with `yt-dlp`. | [Documentation](src/bash/ytdm.md) |
+| `nopass` | Toggle passwordless `sudo` for the current user. | [Documentation](src/bash/nopass.md) |
+| `covers` | Jump to the `audio_ai` project or delegate to its `covers` CLI. | [Documentation](src/bash/covers.md) |
+| `cover` | Shorthand for `covers`. | [Documentation](src/bash/cover.md) |
 
 ## Git Repository Notes
 
@@ -29,8 +34,18 @@ Usage notes for my GitHub projects, stored as one Markdown file per repository:
 linux_tools/
 ├── src/
 │   ├── bash/
-│   │   ├── down_.sh   # sourceable shell function
-│   │   └── down_.md   # documentation
+│   │   ├── down_.sh    # sourceable shell function
+│   │   ├── down_.md    # documentation
+│   │   ├── ytd.sh
+│   │   ├── ytd.md
+│   │   ├── ytdm.sh
+│   │   ├── ytdm.md
+│   │   ├── nopass.sh
+│   │   ├── nopass.md
+│   │   ├── covers.sh
+│   │   ├── covers.md
+│   │   ├── cover.sh
+│   │   └── cover.md
 │   └── git/
 │       ├── audvis.md
 │       ├── photo-asker.md
@@ -46,20 +61,41 @@ linux_tools/
 
 ## Installation
 
-Each tool is self-contained. Copy the script to a stable location and source it from your shell configuration, or follow the installation section in the tool's documentation.
-
-For example, to install `down_`:
+Each tool is a self-contained shell function. Source the file you need from `~/.bashrc` (or `~/.zshrc`):
 
 ```bash
-mkdir -p ~/.local/share/linux_tools
-cp src/bash/down_.sh ~/.local/share/linux_tools/down_.sh
-echo 'source ~/.local/share/linux_tools/down_.sh' >> ~/.bashrc
+echo 'source /path/to/linux_tools/src/bash/down_.sh' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+To load every bash tool at once, source the directory with a small loader:
+
+```bash
+_load_linux_tools() {
+    local dir="${LINUX_TOOLS_DIR:-$HOME/Projects/tools/tools/linux_tools}/src/bash"
+    local tool
+    [ -d "$dir" ] || return 0
+    for tool in "$dir"/*.sh; do
+        [ -r "$tool" ] && . "$tool"
+    done
+}
+_load_linux_tools
+unset -f _load_linux_tools
+```
+
+This is the setup used in `~/.bashrc`: any new `<tool>.sh` dropped into `src/bash/` is loaded on the next shell start.
+
 ## Requirements
 
-See the documentation of each tool for its dependencies. `down_` requires `aria2`, `curl`, `python`, and `yt-dlp`.
+See the documentation of each tool for its full dependency list.
+
+| Tool | Requirements |
+| --- | --- |
+| `down_` | `aria2`, `curl`, `python`, `yt-dlp` |
+| `ytd` | `yt-dlp`, Firefox with an active profile |
+| `ytdm` | `yt-dlp`, `ffmpeg`, Firefox with an active profile |
+| `nopass` | `sudo` with `visudo` |
+| `covers`, `cover` | `audio_ai` checkout and a `covers` executable in `PATH` |
 
 ## License
 
